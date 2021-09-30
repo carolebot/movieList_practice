@@ -16,7 +16,7 @@ app.use(express.urlencoded({extended: true}))
 
 // set router 
 app.get('/', (req, res) => {
-  res.send('this is homepage')
+  res.render('index')
 })
 
 app.get('/movies/:id', (req, res) => {

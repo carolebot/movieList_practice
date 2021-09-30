@@ -30,6 +30,15 @@ app.get('/movies/:id', (req, res) => {
   res.render('show', { movie })
 })
 
+app.get('/search', (req, res) => {
+  const keyword = req.query.keyword
+  const searchMovies = movieList.filter(movie => {
+    return movie.title.toLowerCase().includes(keyword.toLowerCase())
+  })
+  res.render('index', { movies: searchMovies, keyword })
+})
+
+
 // server start listen 
 app.listen(port, () => {
   console.log(`exp is running on http://localhost:${port}`)
